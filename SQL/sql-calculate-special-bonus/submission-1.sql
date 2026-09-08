@@ -1,5 +1,8 @@
 -- Write your query below
-select c.name
-from customers c
-left join orders o on c.id = o.customer_id
-where o.customer_id is NULL;
+select employee_id, 
+case
+    when employee_id % 2 = 1 and name not like 'M%' then salary
+    else 0
+end as bonus
+from employees
+order by employee_id
